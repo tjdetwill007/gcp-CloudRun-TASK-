@@ -11,7 +11,7 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'myimage', '--image', 'asia-south2-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage', '--region', 'REGION']
+  args: ['run', 'deploy', 'myimage', '--image', 'asia-south2-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage', '--region', 'asia-south2']
 
 options:
   logging: CLOUD_LOGGING_ONLY
