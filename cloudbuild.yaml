@@ -6,7 +6,7 @@ steps:
 
  #Docker Push 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push',  'us-central1-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}']
+  args: ['push',  'asia-south2-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}']
 options:
   logging: CLOUD_LOGGING_ONLY
 
