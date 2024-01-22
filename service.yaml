@@ -1,0 +1,78 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: myimage
+  namespace: '793719308296'
+  selfLink: /apis/serving.knative.dev/v1/namespaces/793719308296/services/myimage
+  uid: 5a646a08-43c3-4e93-8307-7cceaca5e053
+  resourceVersion: AAYPiIUEvCQ
+  generation: 5
+  creationTimestamp: '2024-01-22T12:25:00.878702Z'
+  labels:
+    managed-by: gcp-cloud-build-deploy-cloud-run
+    gcb-trigger-id: d77c672c-b9ac-4396-b050-0cb4a4960c3c
+    gcb-trigger-region: asia-south2
+    cloud.googleapis.com/location: asia-south2
+  annotations:
+    run.googleapis.com/client-name: gcloud
+    serving.knative.dev/creator: rahulpateljswl@gmail.com
+    serving.knative.dev/lastModifier: 793719308296-compute@developer.gserviceaccount.com
+    run.googleapis.com/client-version: 460.0.0
+    run.googleapis.com/operation-id: 6582fb4e-4ddc-4e99-9af9-635fda9f32a7
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+spec:
+  template:
+    metadata:
+      labels:
+        client.knative.dev/nonce: cytpbntrsv
+        run.googleapis.com/startupProbeType: Default
+      annotations:
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 460.0.0
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      serviceAccountName: 793719308296-compute@developer.gserviceaccount.com
+      containers:
+      - name: placeholder-1
+        image: asia-south2-docker.pkg.dev/core-depth-408914/gcptask3artifact/myimage:cfffb8b
+        ports:
+        - name: http1
+          containerPort: 5000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+        startupProbe:
+          timeoutSeconds: 240
+          periodSeconds: 240
+          failureThreshold: 1
+          tcpSocket:
+            port: 5000
+  traffic:
+  - percent: 100
+    latestRevision: true
+status:
+  observedGeneration: 5
+  conditions:
+  - type: Ready
+    status: 'True'
+    lastTransitionTime: '2024-01-22T13:08:01.912868Z'
+  - type: ConfigurationsReady
+    status: 'True'
+    lastTransitionTime: '2024-01-22T13:07:50.314076Z'
+  - type: RoutesReady
+    status: 'True'
+    lastTransitionTime: '2024-01-22T13:08:01.912868Z'
+  latestReadyRevisionName: myimage-00004-vpz
+  latestCreatedRevisionName: myimage-00004-vpz
+  traffic:
+  - revisionName: myimage-00004-vpz
+    percent: 100
+    latestRevision: true
+  url: https://myimage-idvyya7vfq-em.a.run.app
+  address:
+    url: https://myimage-idvyya7vfq-em.a.run.app
