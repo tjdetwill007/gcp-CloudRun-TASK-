@@ -7,6 +7,12 @@ steps:
  #Docker Push 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push',  'asia-south2-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}']
+
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'myimage', '--image', 'asia-south2-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/myimage', '--region', 'REGION']
+
 options:
   logging: CLOUD_LOGGING_ONLY
 
